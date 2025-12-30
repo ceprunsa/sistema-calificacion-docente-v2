@@ -88,6 +88,10 @@ export const exportTeacherEvaluationsToExcel = (
     "Desempeño 6 (Valor)": levelToNumber(evaluation.performance6),
     "Puntaje Total": calculateTotalScore(evaluation),
     "Puntaje Máximo": 24,
+    Observaciones: evaluation.observations || "",
+    Fortalezas: evaluation.strengths || "",
+    "Areas de Mejora": evaluation.improvementAreas || "",
+    Compromisos: evaluation.commitments || "",
   }));
 
   // Crear el libro de trabajo
@@ -127,6 +131,10 @@ export const exportTeacherEvaluationsToExcel = (
     { wch: 8 }, // Desempeño 6 (Valor)
     { wch: 12 }, // Puntaje Total
     { wch: 12 }, // Puntaje Máximo
+    { wch: 30 }, // Observaciones
+    { wch: 30 }, // Fortalezas
+    { wch: 30 }, // Areas de Mejora
+    { wch: 30 }, // Compromisos
   ];
 
   worksheet["!cols"] = columnWidths;
